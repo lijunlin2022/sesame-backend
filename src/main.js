@@ -1,8 +1,7 @@
 const Koa = require('koa')
-const userRouter = require('./routes/users')
+const routing = require('./routes')
 
 const app = new Koa()
-
-app.use(userRouter.routes()).use(userRouter.allowedMethods())
+routing(app)
 
 app.listen(3000)
