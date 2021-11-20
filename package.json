@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "koa": "^2.13.4",
-    "koa-router": "^10.1.1"
+    "koa-router": "^10.1.1",
+    "mongoose": "^6.0.13"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
