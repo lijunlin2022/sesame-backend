@@ -1,24 +1,17 @@
 const Router = require('koa-router')
 const router = new Router({ prefix: '/user' })
+const {
+  find,
+  findById,
+  create,
+  update,
+  del
+} = require('../controllers/users')
 
-router.get('/', async (ctx) => {
-  ctx.body = '查询多个'
-})
-
-router.post('/', async (ctx) => {
-  ctx.body = '新增'
-})
-
-router.get('/:id', async (ctx) => {
-  ctx.body = '查询单个'
-})
-
-router.patch('/:id', async (ctx) => {
-  ctx.body = '更新'
-})
-
-router.delete('/:id', async (ctx) => {
-  ctx.body = '删除'
-})
+router.get('/', find)
+router.post('/', create)
+router.get('/:id', findById)
+router.patch('/:id', update)
+router.delete('/:id', del)
 
 module.exports = router
