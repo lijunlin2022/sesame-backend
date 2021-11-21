@@ -1,12 +1,16 @@
 const Koa = require('koa')
 const KoaBody = require('koa-body')
 const routing = require('./routes')
-require('./db/mongodb')
+const connectMongoDB = require('./db/mongodb')
 
 const app = new Koa()
+
+connectMongoDB()
+
 app.use(KoaBody({
   multipart: true
 }))
+
 routing(app)
 
 app.listen(3000, () => {
