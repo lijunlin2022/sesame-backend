@@ -725,6 +725,21 @@ koa-convert@^2.0.0:
     co "^4.6.0"
     koa-compose "^4.1.0"
 
+koa-json-error@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.npmmirror.com/koa-json-error/download/koa-json-error-3.1.2.tgz#acad750c6739cb12cc4ea6c25f224d59b765abfe"
+  integrity sha1-rK11DGc5yxLMTqbCXyJNWbdlq/4=
+  dependencies:
+    lodash.compact "^3.0.1"
+    lodash.curry "^4.1.1"
+
+koa-parameter@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.nlark.com/koa-parameter/download/koa-parameter-3.0.1.tgz#b0645f2412eadb79d3a1808d17ed30824a54c887"
+  integrity sha1-sGRfJBLq23nToYCNF+0wgkpUyIc=
+  dependencies:
+    parameter "^2.2.0"
+
 koa-router@^10.1.1:
   version "10.1.1"
   resolved "https://registry.nlark.com/koa-router/download/koa-router-10.1.1.tgz#20809f82648518b84726cd445037813cd99f17ff"
@@ -771,6 +786,16 @@ latest-version@^5.1.0:
   integrity sha1-EZ3+kI/jjRXfpD7NE/oS7Igy+s4=
   dependencies:
     package-json "^6.3.0"
+
+lodash.compact@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.nlark.com/lodash.compact/download/lodash.compact-3.0.1.tgz#540ce3837745975807471e16b4a2ba21e7256ca5"
+  integrity sha1-VAzjg3dFl1gHRx4WtKK6IeclbKU=
+
+lodash.curry@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.nlark.com/lodash.curry/download/lodash.curry-4.1.1.tgz#248e36072ede906501d75966200a86dab8b23170"
+  integrity sha1-JI42By7ekGUB11lmIAqG2riyMXA=
 
 lowercase-keys@^1.0.0, lowercase-keys@^1.0.1:
   version "1.0.1"
@@ -974,6 +999,11 @@ package-json@^6.3.0:
     registry-auth-token "^4.0.0"
     registry-url "^5.0.0"
     semver "^6.2.0"
+
+parameter@^2.2.0:
+  version "2.4.0"
+  resolved "https://registry.npmmirror.com/parameter/download/parameter-2.4.0.tgz#85ea52e9dfee80265a07b086edbc352e68b39733"
+  integrity sha1-hepS6d/ugCZaB7CG7bw1LmizlzM=
 
 parseurl@^1.3.2:
   version "1.3.3"

@@ -12,6 +12,10 @@ class UserCtl {
     ctx.body = user
   }
   async create (ctx) {
+    ctx.verifyParams({
+      username: { type: 'string', required: true },
+      password: { type: 'string', required: true }
+    })
     console.log(ctx.request.body)
     const user = await new User(ctx.request.body).save()
     ctx.body = user

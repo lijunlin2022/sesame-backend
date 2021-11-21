@@ -1,5 +1,7 @@
 const Koa = require('koa')
-const KoaBody = require('koa-body')
+const koaBody = require('koa-body')
+const koaJsonError = require('koa-json-error')
+const koaParameter = require('koa-parameter')
 const routing = require('./routes')
 const connectMongoDB = require('./db/mongodb')
 
@@ -7,8 +9,16 @@ const app = new Koa()
 
 connectMongoDB()
 
-app.use(KoaBody({
+app.use(koaParameter(app))
+
+app.use(koaBody({
   multipart: true
+}))
+
+app.use(koaJsonError({
+  postFormat: function (e, { stack, ...rest }) {
+    return process.env.NODE_ENV === 'production'? rest : { stack, ... rest }
+  }
 }))
 
 routing(app)
