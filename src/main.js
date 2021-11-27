@@ -23,6 +23,6 @@ app.use(koaJsonError({
 
 routing(app)
 
-app.listen(3000, () => {
-  console.log('程序启动成功，运行在 3000 端口')
+app.listen(4000, () => {
+  console.log('程序启动成功，运行在 4000 端口')
 })

@@ -21,6 +21,15 @@ class UserCtl {
     ctx.body = user
   }
   async update (ctx) {
+    ctx.verifyParams({
+      username: { type: 'string', required: false },
+      password: { type: 'string', required: false },
+      gender: { type: 'string', required: false },
+      avatar_url: { type: 'string', required: false },
+      headline: { type: 'string', required: false },
+      locations: { type: 'array', itemType: 'string', required: false },
+      educations: { type: 'array', itemType: 'object', required: false }
+    })
     const user = await User.findByIdAndUpdate(ctx.params.id, ctx.request.body)
     if (!user) {
       ctx.throw(404, '用户不存在')
