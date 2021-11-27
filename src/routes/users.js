@@ -1,5 +1,5 @@
 const Router = require('koa-router')
-const jsonWebToken = require('jsonwebtoken')
+const KoaJwt = require('koa-jwt')
 const router = new Router({ prefix: '/user' })
 const {
   find,
@@ -19,17 +19,7 @@ const { secret } = require('../config/jwt')
 /**
  * 认证用户是否登录
  */
-const auth = async (ctx, next) => {
-  const { authorization = '' } = ctx.request.header
-  const token = authorization.replace('Bearer', '')
-  try {
-    const user = jsonWebToken.verify(token, secret)
-    ctx.state.user = user
-  } catch (err) {
-    ctx.throw(401, err.message)
-  }
-  await next()
-}
+const auth = KoaJwt({ secret })
 
 /**
  * 检测操作的 id 是否和用户 id 相等
