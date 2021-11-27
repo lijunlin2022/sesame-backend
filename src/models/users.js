@@ -6,8 +6,8 @@ const userSchema = new Schema({
   __v: { type: Number, select: false },
   username: { type: String, required: true },
   password: { type: String, required: true, select: false },
-  gender: { type: String, enum: ['male', 'female'], default: 'male', required: true },
-  avatar_url: { type: String, required: true },
+  gender: { type: String, enum: ['male', 'female'], default: 'male' },
+  avatar_url: { type: String },
   /**
    * 一句话介绍
    */
@@ -16,7 +16,7 @@ const userSchema = new Schema({
    * 居住地
    */
   locations: {
-    type: [{ type: String }]
+    type: [{ type: String }], select: false
   },
   /**
    * 教育经历

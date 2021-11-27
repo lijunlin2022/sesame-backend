@@ -1,11 +1,18 @@
 const jsonWebToken = require('jsonwebtoken')
 const User = require('../models/users')
+const Question = require('../models/questions')
 const { secret } = require('../config/jwt')
 
 class UserCtl {
 
   async find (ctx) {
-    ctx.body = await User.find()
+    const { pageNo = 1, pageSize = 10, q = '' } = ctx.query
+    const pNo = Math.max(pageNo * 1, 1) - 1
+    const pSize = Math.max(pageSize * 1, 1)
+    ctx.body = await User
+                      .find({ username: new RegExp(q) })
+                      .limit(pSize)
+                      .skip(pNo * pSize)
   }
 
   async findById (ctx) {
@@ -37,9 +44,6 @@ class UserCtl {
       educations: { type: 'array', itemType: 'object', required: false }
     })
     const user = await User.findByIdAndUpdate(ctx.params.id, ctx.request.body)
-    if (!user) {
-      ctx.throw(404, '用户不存在')
-    }
     ctx.body = user
   }
 
@@ -118,6 +122,11 @@ class UserCtl {
       me.save()
     }
     ctx.status = 204
+  }
+
+  async listQuestions (ctx) {
+    const questions = await Question.find({ questioner: ctx.params.id })
+    ctx.body = questions
   }
 }
 
