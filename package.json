@@ -9,6 +9,7 @@
     "start": "cross-env NODE_ENV=development nodemon src/main.js"
   },
   "dependencies": {
+    "jsonwebtoken": "^8.5.1",
     "koa": "^2.13.4",
     "koa-body": "^4.2.0",
     "koa-json-error": "^3.1.2",

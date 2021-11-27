@@ -44,7 +44,17 @@ const userSchema = new Schema({
        * 毕业年份
        */
       graduation_year: { type: Number }
-    }]
+    }],
+    select: false
+  },
+  /**
+   * 关注的人
+   */
+  following: {
+    type: [{
+      type: Schema.Types.ObjectId, ref: 'User'
+    }],
+    select: false
   }
 })
 
