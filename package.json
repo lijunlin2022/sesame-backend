@@ -6,7 +6,9 @@
   "author": "a-layfolk <1808150553@qq.com>",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=development nodemon src/main.js"
+    "start": "cross-env NODE_ENV=development nodemon src/main.js",
+    "prd": "cross-env NODE_ENV=production pm2 start src/main.js",
+    "stop": "cross-env NODE_ENV=production pm2 stop src/main.js"
   },
   "dependencies": {
     "jsonwebtoken": "^8.5.1",
@@ -20,6 +22,7 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "pm2": "^5.1.2"
   }
 }
